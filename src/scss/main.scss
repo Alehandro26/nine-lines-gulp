@@ -336,7 +336,7 @@ main {
 		gap: 10px;
 
 		@include desktop {
-			margin-right: 142px;
+			margin-right: 135px;
 			margin-bottom: 110px;
 		}
 	}
@@ -426,12 +426,18 @@ main {
 		@include desktop {
 			flex-direction: row;
 			gap: 0;
+			justify-content: space-between;
 		}
 	}
 
 	&__image-wrapper {
 		display: flex;
 		justify-content: center;
+
+		@include desktop {
+			width: 310px;
+			position: relative;
+		}
 	}
 
 	&__image {
@@ -484,6 +490,10 @@ main {
 	opacity: 0;
 	transform: translateX(-40px);
 
+	@include desktopL {
+		min-width: 560px;
+	}
+
 	&__date {
 		font-family: "SF Pro Display Regular";
 		font-weight: 400;
@@ -497,6 +507,13 @@ main {
 		display: flex;
 		padding: 8px 0;
 		gap: 8px;
+	}
+
+	&__text {
+		@include desktop {
+			display: flex;
+			gap: 8px;
+		}
 	}
 
 	&__name {
@@ -527,10 +544,6 @@ main {
 		}
 	}
 
-	&__subtitle {
-		line-height: 17px;
-	}
-
 	&__link {
 		display: block;
 		margin-top: 4px;
@@ -544,6 +557,14 @@ main {
 }
 
 .education {
+	@include desktop {
+			text-align: center;
+			width: 269px;
+		}
+
+	@include desktopL {
+		
+	}
 	&__title {
 		margin-bottom: 16px;
 		font-size: 20px;
@@ -569,10 +590,7 @@ main {
 		}
 	}
 
-	@include desktop {
-		max-width: 269px;
-		text-align: center;
-	}
+	
 }
 
 .educ-card {
@@ -584,9 +602,18 @@ main {
 	transform: translateX(40px);
 	gap: 5px;
 
+	@include desktop {
+		flex: 0 1 150px;
+		gap: 8px;
+	}
+
 	&__image {
 		width: fit-content;
 		height: 35px;
+
+		@include desktop {
+			height: fit-content;
+		}
 	}
 
 	&__title {
@@ -603,6 +630,10 @@ main {
 .skill {
 	overflow: hidden;
 	padding-top: 40px;
+
+	@include desktop {
+			padding-top: 181px;
+		}
 
 	&__wrapper {
 		position: relative;
@@ -670,10 +701,6 @@ main {
 	&__subtitle {
 		opacity: 0;
 		transform: translateY(30px);
-	}
-
-	@include desktop {
-		padding-top: 190px;
 	}
 }
 
