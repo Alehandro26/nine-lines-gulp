@@ -1,9 +1,9 @@
-window.addEventListener('load', () => {
-    const loader = document.querySelector('.preloader');
-    const loaderImage = document.querySelector('.preloader__image');
+const loader = document.querySelector('.preloader');
+const loaderImage = document.querySelector('.preloader__image');
 
+window.addEventListener('load', () => {
     loaderImage.style.animation = 'loader 2.5s linear forwards';
-    setTimeout(() => loader.style.display = "none", 2500)
+    setTimeout(() => loader.style.display = "none", 2500);
 })
 
 
@@ -86,13 +86,15 @@ gsap.to(".fade", {
       opacity: 1,
       y: 0,
       delay: 2.5,
-      duration: 0.6,
+      duration: 1,
       ease: "power4.out",
       stagger: {
-        amount: 0.4,
+        amount: 0.6,
       },
     });
 
+   // let fadeExperience = () => {
+  //if (loader.classList.contains('not')) {
     gsap.to(".fade-bot", {
       scrollTrigger: {
         trigger: ".fade-bot",
@@ -134,6 +136,10 @@ gsap.to(".fade", {
         amount: 0.8,
       },
     });
+ // }
+//}
+
+//fadeExperience();
 
     gsap.to(".fade-skill", {
       scrollTrigger: {
@@ -148,16 +154,3 @@ gsap.to(".fade", {
         amount: 1,
       },
     });
-
-
-
-/*
-const linkList = document.querySelectorAll('.menu-des__link');
-linkList.forEach(link => link.addEventListener('click', linkActive));
-
-
-function linkActive(e) {
-    e.target.classList.add('active');
-}
-*/
-
