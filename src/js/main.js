@@ -1,3 +1,5 @@
+import Share from 'ninelines-sharing';
+
 const loader = document.querySelector('.preloader');
 const loaderImage = document.querySelector('.preloader__image');
 
@@ -71,21 +73,21 @@ function menuItemThree() {
     menuItem1.classList.remove('active');
 }
 
-const header = document.querySelector('.header');
 const scrollTop = document.querySelector('.top-link__link');
 
-scrollTop.addEventListener('click', () => header.scrollIntoView({behavior: "smooth"}));
+scrollTop.addEventListener('click', () => scrollTo(0, 0));
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to(".fade", {
+let fadeExperience = () => {
+  setTimeout(() => {
+    gsap.to(".fade", {
       scrollTrigger: {
         trigger: ".fade",
         start: "80px 55%",
       },
       opacity: 1,
       y: 0,
-      delay: 2.5,
       duration: 1,
       ease: "power4.out",
       stagger: {
@@ -93,12 +95,10 @@ gsap.to(".fade", {
       },
     });
 
-   // let fadeExperience = () => {
-  //if (loader.classList.contains('not')) {
     gsap.to(".fade-bot", {
       scrollTrigger: {
         trigger: ".fade-bot",
-        start: "0 70%",
+        start: "0 75%",
       },
       opacity: 1,
       y: 0,
@@ -136,12 +136,8 @@ gsap.to(".fade", {
         amount: 0.8,
       },
     });
- // }
-//}
 
-//fadeExperience();
-
-    gsap.to(".fade-skill", {
+       gsap.to(".fade-skill", {
       scrollTrigger: {
         trigger: ".fade-skill",
         start: "0 75%",
@@ -154,3 +150,40 @@ gsap.to(".fade", {
         amount: 1,
       },
     });
+
+  }, 2500)
+}
+
+fadeExperience();
+
+const linkTop = document.querySelector('.top-link');
+const footer = document.querySelector('.footer');
+
+window.addEventListener('scroll', () => {
+  if (((window.innerHeight + window.scrollY) + (footer.clientHeight / 3)) >= document.body.scrollHeight) {
+    linkTop.classList.add('active')
+  } else if (window.scrollY <= 100) {
+    linkTop.classList.remove('active');
+  }
+})
+
+
+Array.from(document.querySelectorAll('[data-social]')).forEach((link) => {
+    link.addEventListener('click', () => {
+        let url = location.origin + location.pathname;
+
+        switch (event.currentTarget.dataset.social) {
+            case 'facebook':
+                Share.facebook(url);
+                break;
+
+            case 'vk':
+                Share.vk(url);
+                break;
+
+            case 'telegram':
+                Share.telegram(url);
+                break;
+        }
+    });
+});
