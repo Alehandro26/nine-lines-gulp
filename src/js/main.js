@@ -1,4 +1,6 @@
-import Share from 'ninelines-sharing';
+import Vendor from './vendor';
+
+Vendor;
 
 const loader = document.querySelector('.preloader');
 const loaderImage = document.querySelector('.preloader__image');
@@ -178,23 +180,3 @@ function scrollPercetnage() {
 };
 
 window.addEventListener('scroll', scrollPercetnage);
-
-Array.from(document.querySelectorAll('[data-social]')).forEach((link) => {
-    link.addEventListener('click', () => {
-        let url = location.origin + location.pathname;
-
-        switch (event.currentTarget.dataset.social) {
-            case 'facebook':
-                Share.facebook(url);
-                break;
-
-            case 'vk':
-                Share.vk(url);
-                break;
-
-            case 'telegram':
-                Share.telegram(url);
-                break;
-        }
-    });
-});
