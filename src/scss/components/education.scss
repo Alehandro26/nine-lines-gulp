@@ -1,0 +1,73 @@
+.education {
+    @include desktop {
+        text-align: center;
+        width: 269px;
+    }
+
+    &__title {
+        margin-bottom: 16px;
+        font-size: 20px;
+        line-height: 24px;
+        opacity: 0;
+        transform: translateX(40px);
+
+        @include mobile {
+            margin-left: 2px;
+        }
+
+        @include desktop {
+            margin-bottom: 31px;
+            font-size: 24px;
+            line-height: 29px;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        @include desktop {
+            gap: 30.5px;
+        }
+    }
+
+
+}
+
+.educ-card {
+    display: flex;
+    flex: 0 1 157px;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(40px);
+    gap: 5px;
+
+    @include desktop {
+        flex: 0 1 150px;
+        gap: 8px;
+        margin-right: 3px;
+    }
+
+    &__image {
+        width: fit-content;
+        height: 40px;
+
+        @include desktop {
+            height: fit-content;
+        }
+    }
+
+    &__title {
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+    }
+
+    &__subtitle {
+        text-align: center;
+        line-height: 20px;
+    }
+}

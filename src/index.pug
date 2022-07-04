@@ -1,21 +1,11 @@
 extends pug/base
-
-prepend vars
-	//-
-
-append vars
-	//-
-
 block content
-	//- include pug/data
+	include pug/components/header
+	include pug/components/about
+	include pug/components/experience
+	include pug/components/skill
+	include pug/components/footer
+	include pug/components/buttonTop
 
-	//- .site
-	//- 	include pug/components/header
-
-	//- 	include pug/pages/home
-
-	//- 	include pug/components/footer
-
-	//- include pug/components/analytics
 
 

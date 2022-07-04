@@ -1,0 +1,86 @@
+.skill {
+    overflow: hidden;
+    padding-top: 40px;
+
+    @include desktop {
+        padding-top: 192px;
+    }
+
+    &__wrapper {
+        position: relative;
+
+        @include mobile {
+            margin-left: 2px;
+        }
+    }
+
+    &__bgr {
+        position: absolute;
+        top: -40px;
+        z-index: -1;
+        padding-right: 30px;
+        width: 100%;
+
+        @include desktop {
+            display: none;
+        }
+    }
+
+    &__bgr-desktop {
+        display: none;
+
+        @include desktop {
+            position: absolute;
+            top: -190px;
+            z-index: -1;
+            display: block;
+            padding-right: 30px;
+            width: 100%;
+        }
+
+        @include desktopL {
+            padding-right: 300px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 21px;
+        font-size: 22px;
+        line-height: 26px;
+        opacity: 0;
+        transform: translateY(30px);
+
+        @include desktop {
+            font-size: 24px;
+            line-height: 29px;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__item-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    &__item {
+        flex: 0 1 300px;
+
+        @include desktop {
+            flex: 0 1 270px;
+        }
+    }
+
+    &__item-title {
+        margin-bottom: 6px;
+        font-size: 14px;
+        line-height: 17px;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    &__subtitle {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}

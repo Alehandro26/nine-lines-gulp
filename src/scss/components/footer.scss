@@ -1,17 +1,21 @@
 .footer {
-	display: flex;
-	margin-top: auto;
-	padding: 20px 30px;
-	width: 100%;
+	overflow: hidden;
+	padding: 40px 0;
 
-	&__developer {
-		margin-left: auto;
-		font-size: 12px;
-		line-height: 16px;
+	&__wrapper {
+		display: flex;
+		justify-content: center;
 	}
 
-	&__copy {
-		font-size: 12px;
-		line-height: 16px;
+	&__image {
+		width: 100vw;
+		height: 100%;
+		max-width: 512px;
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	@include desktop {
+		padding: 200px 0 50px;
 	}
 }

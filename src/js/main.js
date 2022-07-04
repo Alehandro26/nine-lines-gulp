@@ -6,13 +6,13 @@ const loaderImage = document.querySelector('.preloader__image');
 window.addEventListener('load', () => {
     loaderImage.style.animation = 'loader 2.5s linear forwards';
     setTimeout(() => loader.style.display = "none", 2500);
-})
+});
 
 
 const buttonPopup = document.querySelector('.header__menu');
 const popupWindow = document.querySelector('.popup');
 const body = document.body;
-const linkPopup = document.querySelectorAll('.popup__link')
+const linkPopup = document.querySelectorAll('.popup__link');
 
 buttonPopup.addEventListener('click', popup);
 
@@ -38,40 +38,40 @@ const menu1 = document.querySelector('.menu-1');
 const menu2 = document.querySelector('.menu-2');
 const menu3 = document.querySelector('.menu-3');
 
-menu1.addEventListener('click', () => about.scrollIntoView({behavior: "smooth"}))
-menu2.addEventListener('click', () => experience.scrollIntoView({behavior: "smooth"}))
-menu3.addEventListener('click', () => skill.scrollIntoView({behavior: "smooth"}))
+menu1.addEventListener('click', () => about.scrollIntoView({behavior: "smooth"}));
+menu2.addEventListener('click', () => experience.scrollIntoView({behavior: "smooth"}));
+menu3.addEventListener('click', () => skill.scrollIntoView({behavior: "smooth"}));
 
 const menuItem1 = document.querySelector('.menu-des-1');
 const menuItem2 = document.querySelector('.menu-des-2');
 const menuItem3 = document.querySelector('.menu-des-3');
 
-menuItem1.addEventListener('click', menuItemOne)
+menuItem1.addEventListener('click', menuItemOne);
 
 function menuItemOne() {
     about.scrollIntoView({behavior: "smooth"});
     menuItem1.classList.add('active');
     menuItem2.classList.remove('active');
     menuItem3.classList.remove('active');
-}
+};
 
-menuItem2.addEventListener('click', menuItemTwo)
+menuItem2.addEventListener('click', menuItemTwo);
 
 function menuItemTwo() {
     experience.scrollIntoView({behavior: "smooth"});
     menuItem2.classList.add('active');
     menuItem1.classList.remove('active');
     menuItem3.classList.remove('active');
-}
+};
 
-menuItem3.addEventListener('click', menuItemThree)
+menuItem3.addEventListener('click', menuItemThree);
 
 function menuItemThree() {
     skill.scrollIntoView({behavior: "smooth"});
     menuItem3.classList.add('active');
     menuItem2.classList.remove('active');
     menuItem1.classList.remove('active');
-}
+};
 
 const scrollTop = document.querySelector('.top-link__link');
 
@@ -152,7 +152,7 @@ let fadeExperience = () => {
     });
 
   }, 2500)
-}
+};
 
 fadeExperience();
 
@@ -160,13 +160,24 @@ const linkTop = document.querySelector('.top-link');
 const footer = document.querySelector('.footer');
 
 window.addEventListener('scroll', () => {
-  if (((window.innerHeight + window.scrollY) + (footer.clientHeight / 3)) >= document.body.scrollHeight) {
+  if (((window.innerHeight + window.scrollY) + footer.clientHeight) >= document.body.scrollHeight) {
     linkTop.classList.add('active')
-  } else if (window.scrollY <= 100) {
+  } else if (((window.innerHeight + window.scrollY) + footer.clientHeight) < document.body.scrollHeight) {
     linkTop.classList.remove('active');
   }
-})
+});
 
+
+function scrollPercetnage() {
+  let progressValue = document.querySelector('.top-link__progress');
+  let pos = document.documentElement.scrollTop;
+  let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let scrollValue = Math.round( pos * 100 / calcHeight);
+  linkTop.style.background = `conic-gradient(#d2233c ${scrollValue}%, #fff ${scrollValue}%)`
+  progressValue.textContent = `${scrollValue}`;
+};
+
+window.addEventListener('scroll', scrollPercetnage);
 
 Array.from(document.querySelectorAll('[data-social]')).forEach((link) => {
     link.addEventListener('click', () => {

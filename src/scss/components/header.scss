@@ -1,117 +1,233 @@
 .header {
-	position: fixed;
-	left: 0;
-	right: 0;
+	position: sticky;
 	top: 0;
-	z-index: 2100;
-	display: flex;
-	align-items: center;
-	padding: 30px;
-	background-color: $color-white;
+	z-index: 10;
+	padding-top: 30px;
+	min-height: 48px;
 
-	&__logo {
-		display: block;
-		width: 140px;
-		height: 19px;
-		transition: $duration-normal;
+	@include desktop {
+		padding-top: 0;
+	}
+
+	&__wrapper {
+		display: flex;
+		justify-content: flex-end;
 	}
 
 	&__menu {
-		position: fixed;
-		left: 0;
-		top: 0;
-		z-index: 98;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		overflow: hidden;
-		overflow-y: auto;
-		margin: 0;
-		margin-top: 84px;
-		padding: 0 20px;
-		width: 100vw;
-		height: 100vh;
-		// stylelint-disable-next-line
-		height: calc(var(--vh) - 84px);
-		color: $color-black;
-		background-color: rgba($color-black, 0.1);
-		opacity: 0;
-		visibility: hidden;
-		transform: translateX(100%);
-		transition: $duration-normal;
-		-webkit-overflow-scrolling: touch;
+		position: relative;
+		z-index: 11;
+		border-style: none;
+		cursor: pointer;
+		padding: 14px 10px;
+		margin-top: -14px;
+		margin-right: -10px;
+		border-radius: 50%;
+		background-color: white;
 
-		@include active {
-			opacity: 1;
-			visibility: visible;
-			transform: translateX(0);
+		&.active {
+			position: fixed;
+			right: 20px;
+			top: 30px;
+			background: #fafafa;
+
+			.header__line:nth-child(2) {
+				opacity: 0;
+			}
+
+			.header__line:first-child {
+				transform: rotate(-45deg) translate(-5px, 6px);
+			}
+
+			.header__line:last-child {
+				transform: rotate(45deg) translate(-5px, -6px);
+			}
 		}
+
+		@include desktop {
+			display: none;
+		}
+	}
+
+	&__line {
+		display: block;
+		width: 26px;
+		height: 2.25px;
+		background: #282a33;
+		transition: all 0.3s ease;
+
+		&:nth-child(2) {
+			margin: 5.62px 0;
+		}
+	}
+
+	&__bgr {
+		display: none;
+
+		svg {
+			display: block;
+		}
+
+		@include desktop {
+			position: absolute;
+			z-index: -1;
+			display: block;
+			width: 100px;
+			top: -88px;
+			right: -8px;
+			opacity: 0;
+			transition: .3s;
+		}
+	}
+}
+
+.menu-des {
+	display: none;
+
+	@include desktop {
+		display: block;
+		margin-right: 5px;
 	}
 
 	&__list {
-		width: 100%;
-		text-align: center;
+		display: flex;
+		list-style: none;
+		background-color: white;
+		padding: 100px 0 40px 15px;
+	}
+
+	&__item:nth-child(2) {
+		margin-right: 30px;
+		margin-left: 32px;
+	}
+
+	&__item {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: 0.3s;
+
+		&.active {
+			.header__bgr {
+				opacity: 1;
+			}
+		}
 	}
 
 	&__link {
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: left;
-		margin: 0 auto;
-		padding: 10px 30px;
-		min-height: 85px;
+		font-family: "SF Pro Display Bold";
 		font-weight: 700;
-		font-size: 16px;
-		line-height: 25px;
-		text-align: left;
-		color: rgba($color-black, 0.7);
-		background-color: $color-white;
+		font-style: normal;
+		font-size: 18px;
+		line-height: 21px;
+		text-decoration: none;
+		color: #282a33;
+		transition: 0.4s;
+		padding: 5px 0;
 
-		&:not(:last-child) {
-			border-bottom: 1px solid $color-gray;
-		}
-
-		&:first-child {
-			border-top: 1px solid $color-gray;
-		}
-
-		@include hover {
-			color: $color-black;
-		}
-
-		@include active {
-			color: $color-black;
+		&:hover,
+		&:focus {
+			color: #6a00e4;
 		}
 	}
+}
 
-	&__burger {
-		z-index: 100;
+@keyframes popupAppear {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes popupItem {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.popup {
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	display: none;
+	overflow-y: scroll;
+	width: 100%;
+	height: 100%;
+	background: #fafafa;
+
+	&__list {
+		position: relative;
+		z-index: 1;
+		display: flex;
 		flex-direction: column;
-		margin: (-6.5px / 2) 0;
-		margin-left: auto;
-		width: 39px;
-		color: $color-black;
+		list-style: none;
+		margin: 60px 0 0 40px;
+		gap: 40px;
+	}
 
-		span {
-			display: block;
-			margin: 6.5px 0;
-			width: 39px;
-			height: 2px;
-			background-color: currentColor;
-			transition: $duration-normal;
+	&__item {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	&__link {
+		font-family: "SF Pro Display Bold";
+		font-weight: 700;
+		font-style: normal;
+		font-size: 26px;
+		line-height: 31px;
+		text-decoration: none;
+		color: #282a33;
+	}
+
+	&__bgr {
+		display: flex;
+		justify-content: center;
+		margin-top: -33px;
+		opacity: 0;
+		transform: scale(0.5);
+	}
+
+	&__image {
+		margin-right: 9px;
+		width: 123.7vw;
+		height: 100%;
+	}
+
+	&__vector {
+		position: absolute;
+		left: 54px;
+		top: 32px;
+	}
+
+	&.active {
+		display: block;
+		opacity: 0;
+		animation: popupAppear 0.25s ease forwards;
+
+		.popup__item {
+			animation: popupItem 0.3s 0.3s ease forwards;
 		}
 
-		@include active {
-			span {
-				&:first-child {
-					transform: translate(0, 8px) rotate(-45deg);
-				}
+		.popup__item:nth-child(2) {
+			animation-delay: 0.4s;
+		}
 
-				&:last-child {
-					transform: translate(0, -6px) rotate(45deg);
-				}
-			}
+		.popup__item:last-child {
+			animation-delay: 0.5s;
+		}
+
+		.popup__bgr {
+			animation: popupAppear 0.4s 0.5s ease forwards;
 		}
 	}
 }
