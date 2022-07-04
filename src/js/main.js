@@ -176,7 +176,7 @@ function scrollPercetnage() {
   let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   let scrollValue = Math.round( pos * 100 / calcHeight);
   linkTop.style.background = `conic-gradient(#d2233c ${scrollValue}%, #fff ${scrollValue}%)`
-  progressValue.textContent = `${scrollValue}`;
+  progressValue.textContent = `${scrollValue} %`;
 };
 
 window.addEventListener('scroll', scrollPercetnage);
