@@ -1,6 +1,6 @@
-#experience.experience
+#experience.experience(data-scroll-section)
 	.experience__wrapper.container
 		include work
-		.experience__image-wrapper
-			img.experience__image.fade-bot(src='./images/sprites/png/boy.png', alt='Boy	image')
+		#section-1.experience__image-wrapper.fade-bot
+			img.experience__image(src='./images/sprites/png/boy.png', alt='Boy	image', data-scroll, data-scroll-sticky, data-scroll-target="#section-1")
 		include education

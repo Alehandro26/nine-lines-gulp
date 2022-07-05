@@ -48,6 +48,7 @@
         padding: 26px 0 20px;
         @include adaptive-font(28, 32);
         line-height: 140%;
+        margin: 0;
         opacity: 0;
         transform: translateY(30px);
 

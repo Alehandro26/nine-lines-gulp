@@ -16,6 +16,8 @@
     &__image-wrapper {
         display: flex;
         justify-content: center;
+        opacity: 0;
+        transform: translateY(250px);
 
         @include desktop {
             width: calc(310px + (200 + 200 * 0.7) * ((100vw - 1440px) / 1800));
@@ -27,8 +29,6 @@
         display: block;
         width: 53.33vw;
         height: 100%;
-        opacity: 0;
-        transform: translateY(250px);
 
         @include desktop {
             position: sticky;

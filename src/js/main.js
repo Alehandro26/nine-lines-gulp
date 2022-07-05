@@ -1,15 +1,7 @@
 import Vendor from './vendor';
+import {locoScroll} from './vendor';
 
 Vendor;
-
-const loader = document.querySelector('.preloader');
-const loaderImage = document.querySelector('.preloader__image');
-
-window.addEventListener('load', () => {
-    loaderImage.style.animation = 'loader 2.5s linear forwards';
-    setTimeout(() => loader.style.display = "none", 2500);
-});
-
 
 const buttonPopup = document.querySelector('.header__menu');
 const popupWindow = document.querySelector('.popup');
@@ -51,7 +43,7 @@ const menuItem3 = document.querySelector('.menu-des-3');
 menuItem1.addEventListener('click', menuItemOne);
 
 function menuItemOne() {
-    about.scrollIntoView({behavior: "smooth"});
+    locoScroll.scrollTo(about);
     menuItem1.classList.add('active');
     menuItem2.classList.remove('active');
     menuItem3.classList.remove('active');
@@ -60,7 +52,7 @@ function menuItemOne() {
 menuItem2.addEventListener('click', menuItemTwo);
 
 function menuItemTwo() {
-    experience.scrollIntoView({behavior: "smooth"});
+    locoScroll.scrollTo(experience);
     menuItem2.classList.add('active');
     menuItem1.classList.remove('active');
     menuItem3.classList.remove('active');
@@ -69,7 +61,7 @@ function menuItemTwo() {
 menuItem3.addEventListener('click', menuItemThree);
 
 function menuItemThree() {
-    skill.scrollIntoView({behavior: "smooth"});
+    locoScroll.scrollTo(skill);
     menuItem3.classList.add('active');
     menuItem2.classList.remove('active');
     menuItem1.classList.remove('active');
@@ -77,7 +69,7 @@ function menuItemThree() {
 
 const scrollTop = document.querySelector('.top-link__link');
 
-scrollTop.addEventListener('click', () => scrollTo(0, 0));
+scrollTop.addEventListener('click', () => locoScroll.scrollTo(0, 0));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,6 +79,7 @@ let fadeExperience = () => {
       scrollTrigger: {
         trigger: ".fade",
         start: "80px 55%",
+        scroller: "[data-scroll-container]",
       },
       opacity: 1,
       y: 0,
@@ -101,6 +94,7 @@ let fadeExperience = () => {
       scrollTrigger: {
         trigger: ".fade-bot",
         start: "0 75%",
+        scroller: "[data-scroll-container]",
       },
       opacity: 1,
       y: 0,
@@ -115,6 +109,7 @@ let fadeExperience = () => {
       scrollTrigger: {
         trigger: ".fade-left",
         start: "0 65%",
+        scroller: "[data-scroll-container]",
       },
       opacity: 1,
       x: 0,
@@ -129,6 +124,7 @@ let fadeExperience = () => {
       scrollTrigger: {
         trigger: ".fade-right",
         start: "0 65%",
+        scroller: "[data-scroll-container]",
       },
       opacity: 1,
       x: 0,
@@ -143,6 +139,7 @@ let fadeExperience = () => {
       scrollTrigger: {
         trigger: ".fade-skill",
         start: "0 75%",
+        scroller: "[data-scroll-container]",
       },
       opacity: 1,
       y: 0,
@@ -161,16 +158,26 @@ fadeExperience();
 const linkTop = document.querySelector('.top-link');
 const footer = document.querySelector('.footer');
 
-window.addEventListener('scroll', () => {
-  if (((window.innerHeight + window.scrollY) + footer.clientHeight) >= document.body.scrollHeight) {
-    linkTop.classList.add('active')
-  } else if (((window.innerHeight + window.scrollY) + footer.clientHeight) < document.body.scrollHeight) {
+locoScroll.on('scroll', ({limit, scroll}) => {
+  if ((scroll.y + footer.clientHeight) >= limit.y) {
+    linkTop.classList.add('active');
+  } else if (scroll.y + footer.clientHeight < limit.y) {
     linkTop.classList.remove('active');
   }
-});
+})
 
+if (document.documentElement.clientWidth >= 1024) {
+  locoScroll.on('scroll', ({ limit, scroll }) => {
 
-function scrollPercetnage() {
+  let progressValue = document.querySelector('.top-link__progress');
+  const progress = Math.round( scroll.y / limit.y * 100 );
+  linkTop.style.background = `conic-gradient(#d2233c ${progress}%, #fff ${progress}%)`
+  progressValue.textContent = `${progress} %`;
+}) 
+
+} else {
+  function scrollPercetnage() {
+
   let progressValue = document.querySelector('.top-link__progress');
   let pos = document.documentElement.scrollTop;
   let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -179,4 +186,9 @@ function scrollPercetnage() {
   progressValue.textContent = `${scrollValue} %`;
 };
 
-window.addEventListener('scroll', scrollPercetnage);
+  window.addEventListener('scroll', scrollPercetnage);
+
+};
+
+
+ 
