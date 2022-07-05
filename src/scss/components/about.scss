@@ -13,20 +13,18 @@
 
     &__wrapper {
         display: flex;
-        flex-direction: column;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        justify-content: space-between;
         gap: 24px;
-
-        @include desktop {
-            flex-direction: row;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 20px;
-        }
     }
 
     &__me {
+        width: calc(335px + (200 + 200 * 0.7) * ((100vw - 375px) / 1023));
+        max-width: 700px;
+
         @include desktop {
-            flex: 0 1 560px;
+            flex: 0 1 38.88vw;
         }
     }
 
@@ -37,21 +35,33 @@
         transform: translateY(30px);
 
         @include desktop {
-            width: 150px;
-            height: 150px;
+            width: calc(150px + (160 + 160 * 0.7) * ((100vw - 1440px) / 1800));
+            min-width: 130px;
+        }
+
+        @include desktopXL {
+            width: 205px;
         }
     }
 
     &__title {
         padding: 26px 0 20px;
-        font-size: 28px;
+        @include adaptive-font(28, 32);
         line-height: 140%;
         opacity: 0;
         transform: translateY(30px);
 
         @include desktop {
+            @include adaptive-font(32, 38);
             padding: 36px 0 30px;
-            font-size: 36px;
+        }
+
+        @include desktopL {
+            @include adaptive-font(36, 44);
+        }
+
+        @include desktopXL {
+            font-size: 39px;
         }
     }
 
@@ -66,8 +76,17 @@
         gap: 10px;
 
         @include desktop {
-            margin-right: 135px;
+            margin-right: calc(20px + (130 + 130 * 0.7) * ((100vw - 1024px) / 1440));
+            margin-bottom: calc(50px + (60 + 60 * 0.7) * ((100vw - 1024px) / 1440));
+        }
+
+        @include desktopL {
+            margin-right: calc(135px + (60 + 60 * 0.7) * ((100vw - 1440px) / 1800));
             margin-bottom: 110px;
+        }
+
+        @include desktopXL {
+            margin-right: 155px;
         }
     }
 
@@ -75,12 +94,24 @@
         font-family: "SF Pro Display Regular";
         font-weight: 400;
         font-style: normal;
-        font-size: 14px;
+        @include adaptive-font(14, 16);
         line-height: 140%;
         text-decoration: none;
         color: #282a33;
         opacity: 0;
         transform: translateY(30px);
+
+        @include desktop {
+            font-size: 14px;
+        }
+
+        @include desktopL {
+            @include adaptive-font(14, 20);
+        }
+
+        @include desktopXL {
+            font-size: 16px;
+        }
     }
 
     &__social {
@@ -98,6 +129,11 @@
 
     &__link-image {
         display: block;
+        width: calc(25px + (10 + 10 * 0.7) * (100vw - 375px) / 1023);
+
+        @include desktop {
+            width: 25px;
+        }
     }
 
     &__vektor {

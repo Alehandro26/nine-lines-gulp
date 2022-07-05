@@ -1,13 +1,25 @@
 @mixin desktop {
 	@media (min-width: 1024px) {
-		@content;
+		@content
 	}
+
+	;
 }
 
 @mixin desktopL {
 	@media (min-width: 1440px) {
-		@content;
+		@content
 	}
+
+	;
+}
+
+@mixin desktopXL {
+	@media (min-width: 1800px) {
+		@content
+	}
+
+	;
 }
 
 @mixin mobile {

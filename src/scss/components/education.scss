@@ -4,21 +4,32 @@
         width: 269px;
     }
 
+    @include desktopL {
+        width: calc(269px + (80 + 80 * 0.7) * ((100vw - 1440px) / 1800));
+        max-width: 300px;
+    }
+
     &__title {
         margin-bottom: 16px;
-        font-size: 20px;
+        @include adaptive-font(20, 24);
         line-height: 24px;
         opacity: 0;
         transform: translateX(40px);
-
-        @include mobile {
-            margin-left: 2px;
-        }
+        margin-left: 2px;
 
         @include desktop {
             margin-bottom: 31px;
-            font-size: 24px;
+            margin-left: 0;
+            @include adaptive-font(22, 26);
             line-height: 29px;
+        }
+
+        @include desktopL {
+            @include adaptive-font(24, 30);
+        }
+
+        @include desktopXL {
+            font-size: 26px;
         }
     }
 
@@ -29,16 +40,19 @@
         gap: 20px;
 
         @include desktop {
-            gap: 30.5px;
+            gap: calc(30.5px + (50 + 50 * 0.7) * ((100vw - 1440px) / 1800));
+        }
+
+        @include desktopXL {
+            gap: 47.5px;
         }
     }
-
-
 }
 
 .educ-card {
     display: flex;
-    flex: 0 1 157px;
+    flex: 0 1 30%;
+    min-width: 157px;
     flex-direction: column;
     align-items: center;
     opacity: 0;
@@ -46,9 +60,11 @@
     gap: 5px;
 
     @include desktop {
-        flex: 0 1 150px;
+        flex: inherit;
+        width: calc(150px + (360 + 360 * 0.7) * ((100vw - 1440px) / 1800));
         gap: 8px;
         margin-right: 3px;
+        min-width: 150px;
     }
 
     &__image {
@@ -61,9 +77,21 @@
     }
 
     &__title {
-        font-size: 14px;
+        @include adaptive-font(14, 16);
         line-height: 20px;
         text-align: center;
+
+        @include desktop {
+            font-size: 14px;
+        }
+
+        @include desktopL {
+            @include adaptive-font(14, 22);
+        }
+
+        @include desktopXL {
+            font-size: 17px;
+        }
     }
 
     &__subtitle {

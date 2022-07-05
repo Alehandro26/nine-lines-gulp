@@ -45,15 +45,23 @@
 
     &__title {
         margin-bottom: 21px;
-        font-size: 22px;
+        @include adaptive-font(22, 26);
         line-height: 26px;
         opacity: 0;
         transform: translateY(30px);
 
         @include desktop {
-            font-size: 24px;
+            @include adaptive-font(22, 26);
             line-height: 29px;
             margin-bottom: 30px;
+        }
+
+        @include desktopL {
+            @include adaptive-font(24, 30);
+        }
+
+        @include desktopXL {
+            font-size: 26px;
         }
     }
 
@@ -64,19 +72,36 @@
     }
 
     &__item {
-        flex: 0 1 300px;
+        flex: 1 0 48%;
+        width: calc(300px + (30 + 30 * 0.7) * ((100vw - 375px) / 1023));
 
         @include desktop {
-            flex: 0 1 270px;
+            flex: 1 1 23%;
+        }
+
+        @include desktopL {
+            width: calc(270px + (120 + 120 * 0.7) * ((100vw - 1440px) / 1800));
         }
     }
 
     &__item-title {
         margin-bottom: 6px;
-        font-size: 14px;
+        @include adaptive-font(14, 16);
         line-height: 17px;
         opacity: 0;
         transform: translateY(30px);
+
+        @include desktop {
+            font-size: 14px;
+        }
+
+        @include desktopL {
+            @include adaptive-font(14, 22);
+        }
+
+        @include desktopXL {
+            font-size: 17px;
+        }
     }
 
     &__subtitle {

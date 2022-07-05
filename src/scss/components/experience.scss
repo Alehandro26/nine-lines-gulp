@@ -18,7 +18,7 @@
         justify-content: center;
 
         @include desktop {
-            width: 310px;
+            width: calc(310px + (200 + 200 * 0.7) * ((100vw - 1440px) / 1800));
             position: relative;
         }
     }
@@ -32,9 +32,14 @@
 
         @include desktop {
             position: sticky;
-            top: 0;
-            width: 34.72vw;
+            top: 160px;
+            width: calc(500px + (300 + 300 * 0.7) * ((100vw - 1440px) / 1800));
             height: fit-content;
+            flex: 1 0 auto;
+        }
+
+        @include desktopL {
+            top: 0;
         }
     }
 

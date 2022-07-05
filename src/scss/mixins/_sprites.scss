@@ -40,3 +40,20 @@
 	}
 	// stylelint-enable order/order
 }
+
+@mixin adaptive-font($mobSize, $pcSize) {
+	$addSize: $pcSize - $mobSize;
+	$addMobSize: $addSize +$addSize * 0.7;
+
+	@media (max-width: 1023px) {
+		font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 375px) / 1023));
+	}
+
+	@media (min-width: 1023px) {
+		font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 1024px) / 1440));
+	}
+
+	@media (min-width: 1440px) {
+		font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 1440px) / 1800));
+	}
+}

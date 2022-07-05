@@ -97,8 +97,8 @@
 	}
 
 	&__item:nth-child(2) {
-		margin-right: 30px;
-		margin-left: 32px;
+		margin-right: 2.083vw;
+		margin-left: 2.22vw;
 	}
 
 	&__item {
@@ -117,12 +117,20 @@
 		font-family: "SF Pro Display Bold";
 		font-weight: 700;
 		font-style: normal;
-		font-size: 18px;
+		@include adaptive-font(16, 20);
 		line-height: 21px;
 		text-decoration: none;
 		color: #282a33;
 		transition: 0.4s;
 		padding: 5px 0;
+
+		@include desktopL {
+			@include adaptive-font(18, 24);
+		}
+
+		@include desktopXL {
+			font-size: 20px;
+		}
 
 		&:hover,
 		&:focus {
