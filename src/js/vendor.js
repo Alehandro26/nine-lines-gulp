@@ -9,10 +9,10 @@ import Preloader from 'ninelines-preloader';
 const loader = document.querySelector('.preloader');
 const loaderImage = document.querySelector('.preloader__image');
 
-Preloader.init('../images/sprites/png/Logo.png', 2500)
+Preloader.init("../images/sprites/png/Logo.png", 0)
     .then(() => {
-        loaderImage.style.animation = 'loader 2.5s linear forwards';
-        loader.style.display = "none";
+        loaderImage.style.animation = "loader 2.5s linear forwards";
+        setTimeout((() => loader.style.display = "none"), 2500); 
     });
 
 export const locoScroll = new LocomotiveScroll({
