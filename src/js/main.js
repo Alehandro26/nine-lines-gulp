@@ -1,4 +1,4 @@
-import Vendor from './vendor';
+import * as Vendor from './vendor';
 import {locoScroll} from './vendor';
 
 Vendor;

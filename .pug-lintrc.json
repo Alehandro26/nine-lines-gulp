@@ -28,7 +28,6 @@
 	},
 	"validateDivTags": true,
 	"validateIndentation": "\t",
-	"validateLineBreaks": "LF",
 	"validateSelfClosingTags": true,
 	"validateTemplateString": true
 }
