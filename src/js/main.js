@@ -13,14 +13,14 @@ buttonPopup.addEventListener('click', popup);
 linkPopup.forEach(linkExit => linkExit.addEventListener('click', popupExit));
 
 function popup() {
-    buttonPopup.classList.toggle('active');
-    popupWindow.classList.toggle('active');
+    buttonPopup.classList.toggle('header__menu_active');
+    popupWindow.classList.toggle('popup_active');
     body.classList.toggle('active');
 }
 
 function popupExit() {
-    buttonPopup.classList.remove('active');
-    popupWindow.classList.remove('active');
+    buttonPopup.classList.remove('header__menu_active');
+    popupWindow.classList.remove('popup_active');
     body.classList.remove('active');
 }
 

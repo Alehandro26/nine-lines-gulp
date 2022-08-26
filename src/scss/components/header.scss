@@ -25,7 +25,7 @@
 		border-radius: 50%;
 		background-color: white;
 
-		&.active {
+		&_active {
 			position: fixed;
 			right: 20px;
 			top: 30px;
@@ -217,7 +217,7 @@
 		top: 32px;
 	}
 
-	&.active {
+	&_active {
 		display: block;
 		opacity: 0;
 		animation: popupAppear 0.25s ease forwards;
