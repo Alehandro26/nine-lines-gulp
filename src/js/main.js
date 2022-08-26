@@ -44,27 +44,27 @@ menuItem1.addEventListener('click', menuItemOne);
 
 function menuItemOne() {
     locoScroll.scrollTo(about);
-    menuItem1.classList.add('active');
-    menuItem2.classList.remove('active');
-    menuItem3.classList.remove('active');
+    menuItem1.classList.add('menu-des__item_active');
+    menuItem2.classList.remove('menu-des__item_active');
+    menuItem3.classList.remove('menu-des__item_active');
 };
 
 menuItem2.addEventListener('click', menuItemTwo);
 
 function menuItemTwo() {
     locoScroll.scrollTo(experience);
-    menuItem2.classList.add('active');
-    menuItem1.classList.remove('active');
-    menuItem3.classList.remove('active');
+    menuItem2.classList.add('menu-des__item_active');
+    menuItem1.classList.remove('menu-des__item_active');
+    menuItem3.classList.remove('menu-des__item_active');
 };
 
 menuItem3.addEventListener('click', menuItemThree);
 
 function menuItemThree() {
     locoScroll.scrollTo(skill);
-    menuItem3.classList.add('active');
-    menuItem2.classList.remove('active');
-    menuItem1.classList.remove('active');
+    menuItem3.classList.add('menu-des__item_active');
+    menuItem2.classList.remove('menu-des__item_active');
+    menuItem1.classList.remove('menu-des__item_active');
 };
 
 const scrollTop = document.querySelector('.top-link__link');

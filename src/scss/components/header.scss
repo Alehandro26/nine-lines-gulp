@@ -106,7 +106,7 @@
 		transform: translateY(30px);
 		transition: 0.3s;
 
-		&.active {
+		&_active {
 			.header__bgr {
 				opacity: 1;
 			}
