@@ -3,7 +3,11 @@
     padding-top: 40px;
 
     @include desktop {
-        padding-top: 192px;
+        padding-top: vw(181px, 1440px);
+    }
+
+    @include desktopXL {
+        padding-top: 240px;
     }
 
     &__wrapper {
@@ -44,24 +48,21 @@
     }
 
     &__title {
-        margin-bottom: 21px;
+        margin-bottom: vw(21px, 375px);
         @include adaptive-font(22, 26);
         line-height: 26px;
         opacity: 0;
         transform: translateY(30px);
 
         @include desktop {
-            @include adaptive-font(22, 26);
-            line-height: 29px;
-            margin-bottom: 30px;
-        }
-
-        @include desktopL {
-            @include adaptive-font(24, 30);
+            font-size: vw(24px, 1440px);
+            line-height: 120.8%;
+            margin-bottom: vw(30px, 1440px);
         }
 
         @include desktopXL {
-            font-size: 26px;
+            font-size: 30px;
+            margin-bottom: 38px;
         }
     }
 
@@ -87,20 +88,16 @@
     &__item-title {
         margin-bottom: 6px;
         @include adaptive-font(14, 16);
-        line-height: 17px;
+        line-height: 121.4%;
         opacity: 0;
         transform: translateY(30px);
 
         @include desktop {
-            font-size: 14px;
-        }
-
-        @include desktopL {
-            @include adaptive-font(14, 22);
+            font-size: vw(14px, 1440px);
         }
 
         @include desktopXL {
-            font-size: 17px;
+            font-size: 18px;
         }
     }
 

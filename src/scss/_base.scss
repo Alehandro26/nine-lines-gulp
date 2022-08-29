@@ -1,6 +1,7 @@
 @import "./fonts";
 @import "./mixins/sprites";
 @import "./mixins/breakpoint";
+@import "./functions/responsive";
 
 * {
 	margin: 0;
@@ -17,15 +18,11 @@ p {
 	color: #282a33;
 
 	@include desktop {
-		font-size: 14px;
-	}
-
-	@include desktopL {
-		@include adaptive-font(14, 20);
+		font-size: vw(14px, 1440px);
 	}
 
 	@include desktopXL {
-		font-size: 16px;
+		font-size: 18px;
 	}
 }
 

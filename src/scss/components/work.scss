@@ -6,24 +6,21 @@
     }
 
     &__title {
-        margin-bottom: 20px;
+        margin-bottom: vw(20px, 375px);
         @include adaptive-font(20, 24);
         line-height: 24px;
         opacity: 0;
         transform: translateX(-40px);
 
         @include desktop {
+            margin-top: 9px;
             margin-bottom: 30px;
-            @include adaptive-font(22, 26);
-            line-height: 29px;
-        }
-
-        @include desktopL {
-            @include adaptive-font(24, 30);
+            font-size: vw(24px, 1440px);
+            line-height: 120.8%;
         }
 
         @include desktopXL {
-            font-size: 26px;
+            font-size: 30px;
         }
     }
 
@@ -45,6 +42,10 @@
     width: calc(333px + (20 + 20 * 0.7) * ((100vw - 375px) / 1023));
     flex: 1 0 48%;
 
+    @include desktop {
+        min-width: vw(560px, 1440px);
+    }
+
     @include desktopL {
         min-width: 560px;
     }
@@ -53,11 +54,11 @@
         margin-bottom: 40px;
 
         @include desktop {
-            margin-bottom: calc(40px + (60 + 60 * 0.7) * ((100vw - 1440px) / 1800));
+            margin-bottom: vw(40px, 1440px);
         }
 
         @include desktopXL {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
     }
 

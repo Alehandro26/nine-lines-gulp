@@ -47,7 +47,7 @@ function menuItemOne() {
     menuItem1.classList.add('menu-des__item_active');
     menuItem2.classList.remove('menu-des__item_active');
     menuItem3.classList.remove('menu-des__item_active');
-};
+}
 
 menuItem2.addEventListener('click', menuItemTwo);
 
@@ -56,7 +56,7 @@ function menuItemTwo() {
     menuItem2.classList.add('menu-des__item_active');
     menuItem1.classList.remove('menu-des__item_active');
     menuItem3.classList.remove('menu-des__item_active');
-};
+}
 
 menuItem3.addEventListener('click', menuItemThree);
 
@@ -65,7 +65,7 @@ function menuItemThree() {
     menuItem3.classList.add('menu-des__item_active');
     menuItem2.classList.remove('menu-des__item_active');
     menuItem1.classList.remove('menu-des__item_active');
-};
+}
 
 const scrollTop = document.querySelector('.top-link__link');
 
@@ -168,26 +168,24 @@ locoScroll.on('scroll', ({limit, scroll}) => {
 
 if (document.documentElement.clientWidth >= 1024) {
   locoScroll.on('scroll', ({ limit, scroll }) => {
-
   let progressValue = document.querySelector('.top-link__progress');
   const progress = Math.round( scroll.y / limit.y * 100 );
-  linkTop.style.background = `conic-gradient(#d2233c ${progress}%, #fff ${progress}%)`
+
+  linkTop.style.background = `conic-gradient(#d2233c ${progress}%, #fff ${progress}%)`;
   progressValue.textContent = `${progress} %`;
 }) 
-
 } else {
-  function scrollPercetnage() {
+  window.addEventListener('scroll', scrollPercetnage);
 
+  function scrollPercetnage() {
   let progressValue = document.querySelector('.top-link__progress');
   let pos = document.documentElement.scrollTop;
   let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   let scrollValue = Math.round( pos * 100 / calcHeight);
-  linkTop.style.background = `conic-gradient(#d2233c ${scrollValue}%, #fff ${scrollValue}%)`
+
+  linkTop.style.background = `conic-gradient(#d2233c ${scrollValue}%, #fff ${scrollValue}%)`;
   progressValue.textContent = `${scrollValue} %`;
-};
-
-  window.addEventListener('scroll', scrollPercetnage);
-
+  };
 };
 
 

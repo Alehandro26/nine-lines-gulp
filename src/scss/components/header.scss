@@ -94,11 +94,20 @@
 		list-style: none;
 		background-color: white;
 		padding: 100px 0 40px 15px;
+		padding-top: vw(100px, 1440px);
+
+		@include desktopXL {
+			padding-top: 125px;
+		}
 	}
 
 	&__item:nth-child(2) {
 		margin-right: 2.083vw;
 		margin-left: 2.22vw;
+
+		@include desktopXL {
+			margin: 0 40px;
+		}
 	}
 
 	&__item {

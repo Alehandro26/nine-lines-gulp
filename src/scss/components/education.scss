@@ -10,7 +10,7 @@
     }
 
     &__title {
-        margin-bottom: 16px;
+        margin-bottom: vw(16px, 375px);
         @include adaptive-font(20, 24);
         line-height: 24px;
         opacity: 0;
@@ -20,16 +20,12 @@
         @include desktop {
             margin-bottom: 31px;
             margin-left: 0;
-            @include adaptive-font(22, 26);
-            line-height: 29px;
-        }
-
-        @include desktopL {
-            @include adaptive-font(24, 30);
+            font-size: vw(24px, 1440px);
+            line-height: 120.8%;
         }
 
         @include desktopXL {
-            font-size: 26px;
+            font-size: 30px;
         }
     }
 
@@ -40,11 +36,11 @@
         gap: 20px;
 
         @include desktop {
-            gap: calc(30.5px + (50 + 50 * 0.7) * ((100vw - 1440px) / 1800));
+            gap: vw(30.5px, 1440px);
         }
 
         @include desktopXL {
-            gap: 47.5px;
+            gap: 38.5px;
         }
     }
 }
@@ -78,24 +74,20 @@
 
     &__title {
         @include adaptive-font(14, 16);
-        line-height: 20px;
+        line-height: 142.8%;
         text-align: center;
 
         @include desktop {
-            font-size: 14px;
-        }
-
-        @include desktopL {
-            @include adaptive-font(14, 22);
+            font-size: vw(14px, 1440px);
         }
 
         @include desktopXL {
-            font-size: 17px;
+            font-size: 18px;
         }
     }
 
     &__subtitle {
         text-align: center;
-        line-height: 20px;
+        line-height: 142.8%;
     }
 }

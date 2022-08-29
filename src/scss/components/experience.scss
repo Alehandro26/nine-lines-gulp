@@ -1,6 +1,10 @@
 .experience {
     overflow: hidden;
 
+    @include desktop {
+        overflow: visible;
+    }
+
     &__wrapper {
         display: flex;
         flex-direction: column;
@@ -27,23 +31,20 @@
 
     &__image {
         display: block;
-        width: 53.33vw;
+        width: vw(200px, 375px);
         height: 100%;
 
         @include desktop {
             position: sticky;
             top: 160px;
-            width: calc(500px + (300 + 300 * 0.7) * ((100vw - 1440px) / 1800));
+            width: vw(500px, 1440px);
             height: fit-content;
             flex: 1 0 auto;
+            max-width: 625px;
         }
 
         @include desktopL {
             top: 0;
         }
-    }
-
-    @include desktop {
-        overflow: visible;
     }
 }

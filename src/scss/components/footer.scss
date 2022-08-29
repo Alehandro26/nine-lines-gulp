@@ -2,6 +2,15 @@
 	overflow: hidden;
 	padding: 40px 0;
 
+	@include desktop {
+		padding-top: vw(200px, 1440px);
+		padding-bottom: vw(50px, 1440px);
+	}
+
+	@include desktopXL {
+		padding: 250px 0 63px;
+	}
+
 	&__wrapper {
 		display: flex;
 		justify-content: center;
@@ -13,9 +22,10 @@
 		max-width: 512px;
 		opacity: 0;
 		transform: translateY(30px);
-	}
 
-	@include desktop {
-		padding: 200px 0 50px;
-	}
+		@include desktop {
+			width: vw(512px, 1440px);
+			max-width: 640px;
+		}
+	}	
 }

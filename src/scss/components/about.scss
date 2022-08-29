@@ -3,12 +3,16 @@
     overflow: hidden;
     margin-top: -42px;
     margin-left: 2px;
-    padding-bottom: 40px;
+    padding-bottom: vw(40px, 375px);
 
     @include desktop {
         margin-top: -61px;
-        padding-bottom: 210px;
+        padding-bottom: vw(210px, 1440px);
         margin-left: 0;
+    }
+
+    @include desktopXL {
+        padding-bottom: 265px;
     }
 
     &__wrapper {
@@ -20,7 +24,7 @@
     }
 
     &__me {
-        width: calc(335px + (200 + 200 * 0.7) * ((100vw - 375px) / 1023));
+        width: vw(335px, 375px);
         max-width: 700px;
 
         @include desktop {
@@ -33,19 +37,20 @@
         height: 100%;
         opacity: 0;
         transform: translateY(30px);
+        max-width: 160px;
 
         @include desktop {
-            width: calc(150px + (160 + 160 * 0.7) * ((100vw - 1440px) / 1800));
-            min-width: 130px;
+            width: vw(150px, 1440px);
+            max-width: none;
         }
 
         @include desktopXL {
-            width: 205px;
+            width: 188px;
         }
     }
 
     &__title {
-        padding: 26px 0 20px;
+        padding: vw(26px, 375px) 0 vw(20px, 375px);
         @include adaptive-font(28, 32);
         line-height: 140%;
         margin: 0;
@@ -53,16 +58,15 @@
         transform: translateY(30px);
 
         @include desktop {
-            @include adaptive-font(32, 38);
-            padding: 36px 0 30px;
-        }
-
-        @include desktopL {
-            @include adaptive-font(36, 44);
+            font-size: vw(36px, 1440px);
+            padding-top: vw(36px, 1440px);
+            padding-bottom: vw(30px, 1440px);
         }
 
         @include desktopXL {
-            font-size: 39px;
+            font-size: 45px;
+            padding-top: 45px;
+            padding-bottom: 38px;
         }
     }
 
@@ -77,17 +81,13 @@
         gap: 10px;
 
         @include desktop {
-            margin-right: calc(20px + (130 + 130 * 0.7) * ((100vw - 1024px) / 1440));
-            margin-bottom: calc(50px + (60 + 60 * 0.7) * ((100vw - 1024px) / 1440));
-        }
-
-        @include desktopL {
-            margin-right: calc(135px + (60 + 60 * 0.7) * ((100vw - 1440px) / 1800));
-            margin-bottom: 110px;
+            margin-right: vw(135px, 1440px);
+            margin-bottom: vw(110px, 1440px);
         }
 
         @include desktopXL {
-            margin-right: 155px;
+            margin-right: 170px;
+            margin-bottom: 138px;
         }
     }
 
@@ -103,15 +103,11 @@
         transform: translateY(30px);
 
         @include desktop {
-            font-size: 14px;
-        }
-
-        @include desktopL {
-            @include adaptive-font(14, 20);
+            font-size: vw(14px, 1440px);
         }
 
         @include desktopXL {
-            font-size: 16px;
+            font-size: 18px;
         }
     }
 
@@ -133,7 +129,11 @@
         width: calc(25px + (10 + 10 * 0.7) * (100vw - 375px) / 1023);
 
         @include desktop {
-            width: 25px;
+            width: vw(25px, 1440px);
+        }
+
+        @include desktopXL {
+            width: 31px;
         }
     }
 

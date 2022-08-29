@@ -2,6 +2,7 @@
 @import "./base";
 @import "./mixins/breakpoint";
 @import "./mixins/sprites";
+@import "./functions/responsive";
 @import "./vendor";
 
 html {
@@ -58,17 +59,16 @@ main {
 	padding: 0 calc(20px + (20 + 20 * 0.7) * ((100vw - 375px) / 1023));
 
 	@include desktop {
-		padding: 0 calc(40px + (160 + 160 * 0.7) * ((100vw - 1024px) / 1440));
+		padding: 0 vw(150px, 1440px);
 	}
 
 	@include desktopL {
 		margin: 0 auto;
-		padding: 0 calc(150px + (40 + 40 * 0.7) * ((100vw - 1440px) / 1800));
 		max-width: 1800px;
 	}
 
 	@include desktopXL {
-		padding: 0 164px;
+		padding: 0 188px;
 	}
 }
 
